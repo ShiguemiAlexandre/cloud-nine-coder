@@ -2,94 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* ITO Portfolio Design System
+   Minimalist tech aesthetic with subtle anime-inspired elements
+   Light, airy, professional with serene cloud motifs
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Background - Warm cream/white */
+    --background: 40 20% 98%;
+    --foreground: 220 30% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card - Parchment-like warmth */
+    --card: 35 30% 95%;
+    --card-foreground: 220 30% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover */
+    --popover: 40 20% 98%;
+    --popover-foreground: 220 30% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep navy-indigo */
+    --primary: 225 45% 22%;
+    --primary-foreground: 40 20% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Soft sky blue */
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 220 30% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Gentle gray */
+    --muted: 210 20% 92%;
+    --muted-foreground: 220 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Soft blue-gray */
+    --accent: 210 35% 88%;
+    --accent-foreground: 220 30% 20%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive */
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 40 20% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Border & Input */
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 225 45% 22%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
+    /* Custom Portfolio Tokens */
+    --cloud-primary: 210 50% 90%;
+    --cloud-secondary: 205 45% 95%;
+    --cloud-accent: 200 40% 85%;
+    
+    --parchment: 35 40% 93%;
+    --parchment-dark: 30 35% 85%;
+    --parchment-edge: 30 30% 75%;
+    
+    --gold-accent: 38 70% 55%;
+    --gold-light: 40 60% 75%;
+    
+    --ink: 220 35% 18%;
+    --ink-light: 220 25% 35%;
+    
+    /* Gradients */
+    --gradient-sky: linear-gradient(180deg, hsl(210, 50%, 98%) 0%, hsl(205, 45%, 95%) 50%, hsl(200, 40%, 92%) 100%);
+    --gradient-parchment: linear-gradient(135deg, hsl(35, 40%, 95%) 0%, hsl(35, 40%, 93%) 50%, hsl(30, 35%, 88%) 100%);
+    --gradient-scroll-edge: linear-gradient(90deg, hsl(30, 30%, 75%) 0%, hsl(35, 35%, 85%) 20%, hsl(35, 40%, 93%) 50%, hsl(35, 35%, 85%) 80%, hsl(30, 30%, 75%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(220, 20%, 80%, 0.4);
+    --shadow-cloud: 0 8px 30px -10px hsl(210, 30%, 70%, 0.3);
+    --shadow-parchment: 0 10px 40px -10px hsl(30, 30%, 50%, 0.25);
+    --shadow-float: 0 20px 50px -15px hsl(220, 30%, 60%, 0.2);
+
+    /* Sidebar (keeping defaults) */
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -100,6 +94,187 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+  }
+
+  .font-display {
+    font-family: 'Noto Serif JP', 'Inter', serif;
+  }
+}
+
+@layer components {
+  /* Cloud Animations */
+  @keyframes float-slow {
+    0%, 100% { 
+      transform: translateX(0) translateY(0) scale(1);
+    }
+    50% { 
+      transform: translateX(20px) translateY(-10px) scale(1.02);
+    }
+  }
+
+  @keyframes float-medium {
+    0%, 100% { 
+      transform: translateX(0) translateY(0) scale(1);
+    }
+    50% { 
+      transform: translateX(-15px) translateY(-8px) scale(1.01);
+    }
+  }
+
+  @keyframes float-fast {
+    0%, 100% { 
+      transform: translateX(0) translateY(0);
+    }
+    50% { 
+      transform: translateX(10px) translateY(-5px);
+    }
+  }
+
+  @keyframes drift {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100vw);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 12s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: float-medium 8s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: float-fast 6s ease-in-out infinite;
+  }
+
+  .animate-drift {
+    animation: drift 60s linear infinite;
+  }
+
+  /* Parchment Styles */
+  .parchment-texture {
+    background: var(--gradient-parchment);
+    position: relative;
+  }
+
+  .parchment-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  /* Scroll Edge */
+  .scroll-edge {
+    background: var(--gradient-scroll-edge);
+    box-shadow: 
+      inset 0 2px 4px hsl(30, 20%, 60%, 0.3),
+      inset 0 -2px 4px hsl(30, 20%, 60%, 0.3),
+      0 4px 8px -2px hsl(30, 30%, 50%, 0.2);
+  }
+
+  /* Tech Badge */
+  .tech-badge {
+    @apply px-4 py-2 rounded-lg text-sm font-medium;
+    background: hsl(var(--secondary));
+    color: hsl(var(--ink));
+    border: 1px solid hsl(var(--border));
+    transition: all 0.2s ease;
+  }
+
+  .tech-badge:hover {
+    background: hsl(var(--accent));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Link Styles */
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 origin-left scale-x-0 transition-transform duration-300;
+    background: hsl(var(--gold-accent));
+  }
+
+  .link-underline:hover::after {
+    @apply scale-x-100;
+  }
+
+  /* Cloud Shape */
+  .cloud-shape {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--cloud-primary)) 0%,
+      hsl(var(--cloud-secondary)) 100%
+    );
+    filter: blur(40px);
+    opacity: 0.6;
+  }
+
+  /* ITO Brand */
+  .ito-brand {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--ink)) 0%,
+      hsl(var(--ink-light)) 50%,
+      hsl(var(--ink)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtle Grain Overlay */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23grain)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .text-ink {
+    color: hsl(var(--ink));
+  }
+
+  .text-ink-light {
+    color: hsl(var(--ink-light));
+  }
+
+  .bg-parchment {
+    background: hsl(var(--parchment));
+  }
+
+  .bg-cloud {
+    background: hsl(var(--cloud-primary));
+  }
+
+  .shadow-parchment {
+    box-shadow: var(--shadow-parchment);
+  }
+
+  .shadow-float {
+    box-shadow: var(--shadow-float);
   }
 }

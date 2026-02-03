@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import CloudBackground from '@/components/CloudBackground';
-import ScrollBrand from '@/components/ScrollBrand';
-import ParchmentScroll from '@/components/ParchmentScroll';
-import PortfolioContent from '@/components/PortfolioContent';
+import GeometricBackground from '@/components/GeometricBackground';
+import ModernScroll from '@/components/ModernScroll';
+import ContentPanel from '@/components/ContentPanel';
+import ModernContent from '@/components/ModernContent';
 
 const Index = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,39 +14,37 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
-      <CloudBackground />
+      <GeometricBackground />
       
-      <main className="relative z-10 min-h-screen flex flex-col items-center justify-start px-4 py-12 md:py-16">
-        {/* Header brand scroll */}
+      <main className="relative z-10 min-h-screen flex flex-col items-center justify-start px-4 py-12 md:py-20">
+        {/* Header scroll */}
         <motion.div
           className="w-full flex justify-center"
           animate={{
-            y: isOpen ? 0 : '30vh',
+            y: isOpen ? 0 : '25vh',
           }}
           transition={{
             duration: 0.6,
-            ease: [0.4, 0, 0.2, 1],
+            ease: [0.16, 1, 0.3, 1],
           }}
         >
-          <ScrollBrand onClick={toggleScroll} isOpen={isOpen} />
+          <ModernScroll onClick={toggleScroll} isOpen={isOpen} />
         </motion.div>
 
-        {/* Main parchment content */}
-        <div className="w-full px-4 md:px-8">
-          <ParchmentScroll isOpen={isOpen}>
-            <PortfolioContent />
-          </ParchmentScroll>
-        </div>
+        {/* Content panel */}
+        <ContentPanel isOpen={isOpen}>
+          <ModernContent />
+        </ContentPanel>
 
-        {/* Footer - visible when closed */}
+        {/* Footer */}
         <motion.footer
-          className="fixed bottom-4 left-0 right-0 text-center"
+          className="fixed bottom-6 left-0 right-0 text-center"
           initial={{ opacity: 0 }}
-          animate={{ opacity: isOpen ? 0 : 0.5 }}
+          animate={{ opacity: isOpen ? 0 : 0.6 }}
           transition={{ duration: 0.3 }}
         >
-          <p className="text-sm text-ink-light font-light">
-            © 2024 ITO
+          <p className="text-sm text-slate-400 font-light tracking-wider">
+            © 2024 Alexandre Shiguemi Ito
           </p>
         </motion.footer>
       </main>

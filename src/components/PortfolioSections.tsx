@@ -108,10 +108,9 @@ const PortfolioSections = () => {
               variants={itemVariants}
               className="text-slate-600 leading-relaxed text-base md:text-lg font-light max-w-xl"
             >
-              Sou um desenvolvedor backend focado em construir sistemas escaláveis e de fácil 
-              manutenção, utilizando Python e arquiteturas orientadas a APIs. Trabalho com 
-              automação, princípios de código limpo e soluções em cloud, sempre priorizando 
-              performance, clareza e impacto real.
+              Desenvolvedor backend especializado em Python, FastAPI e APIs REST, com experiência 
+              em automação, integração de sistemas, bancos de dados SQL e NoSQL e deploy em cloud.
+               Atuo no desenvolvimento de soluções backend voltadas a aplicações reais.
             </motion.p>
             
             {/* Social Links */}

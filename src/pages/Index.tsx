@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import GeometricBackground from '@/components/GeometricBackground';
-import ModernScroll from '@/components/ModernScroll';
-import ContentPanel from '@/components/ContentPanel';
-import ModernContent from '@/components/ModernContent';
+import UkiyoeBackground from '@/components/UkiyoeBackground';
+import FullWidthScroll from '@/components/FullWidthScroll';
+import ParchmentContent from '@/components/ParchmentContent';
+import PortfolioSections from '@/components/PortfolioSections';
 
 const Index = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,35 +12,43 @@ const Index = () => {
     setIsOpen(!isOpen);
   };
 
+  // Smooth scroll behavior
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth';
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
+  }, []);
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
-      <GeometricBackground />
+      <UkiyoeBackground />
       
-      <main className="relative z-10 min-h-screen flex flex-col items-center justify-start px-4 py-12 md:py-20">
-        {/* Header scroll */}
+      <main className="relative z-10 min-h-screen flex flex-col">
+        {/* Header scroll - fixed positioning when closed, static when open */}
         <motion.div
           className="w-full flex justify-center"
           animate={{
-            y: isOpen ? 0 : '25vh',
+            paddingTop: isOpen ? '2rem' : '30vh',
           }}
           transition={{
             duration: 0.6,
             ease: [0.16, 1, 0.3, 1],
           }}
         >
-          <ModernScroll onClick={toggleScroll} isOpen={isOpen} />
+          <FullWidthScroll onClick={toggleScroll} isOpen={isOpen} />
         </motion.div>
 
-        {/* Content panel */}
-        <ContentPanel isOpen={isOpen}>
-          <ModernContent />
-        </ContentPanel>
+        {/* Parchment content panel */}
+        <ParchmentContent isOpen={isOpen}>
+          <PortfolioSections />
+        </ParchmentContent>
 
-        {/* Footer */}
+        {/* Footer when closed */}
         <motion.footer
-          className="fixed bottom-6 left-0 right-0 text-center"
+          className="fixed bottom-6 left-0 right-0 text-center pointer-events-none"
           initial={{ opacity: 0 }}
-          animate={{ opacity: isOpen ? 0 : 0.5 }}
+          animate={{ opacity: isOpen ? 0 : 0.6 }}
           transition={{ duration: 0.3 }}
         >
           <p className="text-sm text-slate-500 font-light tracking-wide">

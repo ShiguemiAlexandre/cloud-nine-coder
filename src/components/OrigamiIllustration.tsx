@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 
+// Red origami crane matching the reference images
+
 const OrigamiIllustration = () => {
   return (
     <motion.div 
@@ -11,97 +13,101 @@ const OrigamiIllustration = () => {
       <svg 
         viewBox="0 0 200 200" 
         className="w-full max-w-[180px] md:max-w-[220px]"
-        style={{ filter: 'drop-shadow(0 4px 12px rgba(100, 116, 139, 0.15))' }}
+        style={{ filter: 'drop-shadow(0 4px 12px rgba(180, 80, 80, 0.25))' }}
       >
-        {/* Abstract origami crane - geometric, modern */}
+        {/* Red origami crane - matching reference */}
         <defs>
-          <linearGradient id="origami-gradient-1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="hsl(210, 50%, 88%)" />
-            <stop offset="100%" stopColor="hsl(210, 45%, 78%)" />
+          <linearGradient id="origami-red-1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="hsl(5, 70%, 65%)" />
+            <stop offset="100%" stopColor="hsl(0, 65%, 55%)" />
           </linearGradient>
-          <linearGradient id="origami-gradient-2" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(215, 40%, 75%)" />
-            <stop offset="100%" stopColor="hsl(205, 50%, 85%)" />
+          <linearGradient id="origami-red-2" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(0, 60%, 45%)" />
+            <stop offset="100%" stopColor="hsl(5, 65%, 60%)" />
           </linearGradient>
-          <linearGradient id="origami-gradient-3" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stopColor="hsl(200, 55%, 92%)" />
-            <stop offset="100%" stopColor="hsl(210, 45%, 82%)" />
+          <linearGradient id="origami-red-3" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" stopColor="hsl(10, 75%, 72%)" />
+            <stop offset="100%" stopColor="hsl(5, 70%, 60%)" />
+          </linearGradient>
+          <linearGradient id="origami-red-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="hsl(0, 55%, 40%)" />
+            <stop offset="100%" stopColor="hsl(355, 50%, 35%)" />
           </linearGradient>
         </defs>
         
-        {/* Main body - large triangle */}
+        {/* Wing left - main body */}
         <motion.polygon
-          points="100,30 160,130 40,130"
-          fill="url(#origami-gradient-1)"
-          stroke="hsl(215, 35%, 65%)"
-          strokeWidth="1"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          points="30,90 100,60 100,140"
+          fill="url(#origami-red-1)"
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         />
         
-        {/* Wing left */}
+        {/* Wing right - main body */}
         <motion.polygon
-          points="40,130 100,90 20,100"
-          fill="url(#origami-gradient-2)"
-          stroke="hsl(215, 35%, 65%)"
-          strokeWidth="1"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        />
-        
-        {/* Wing right */}
-        <motion.polygon
-          points="160,130 100,90 180,100"
-          fill="url(#origami-gradient-2)"
-          stroke="hsl(215, 35%, 65%)"
-          strokeWidth="1"
+          points="170,90 100,60 100,140"
+          fill="url(#origami-red-3)"
           initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        />
+        
+        {/* Wing left shadow */}
+        <motion.polygon
+          points="30,90 100,100 100,140"
+          fill="url(#origami-red-dark)"
+          opacity="0.4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.4 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         />
         
-        {/* Head */}
+        {/* Wing right bottom */}
         <motion.polygon
-          points="100,30 120,60 80,60"
-          fill="url(#origami-gradient-3)"
-          stroke="hsl(215, 35%, 65%)"
-          strokeWidth="1"
+          points="170,90 100,100 100,140"
+          fill="url(#origami-red-2)"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        />
+        
+        {/* Head / neck */}
+        <motion.polygon
+          points="100,60 130,30 120,70 100,80"
+          fill="url(#origami-red-1)"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         />
         
+        {/* Head tip */}
+        <motion.polygon
+          points="130,30 145,35 125,50"
+          fill="url(#origami-red-3)"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, delay: 0.8 }}
+        />
+        
         {/* Tail */}
         <motion.polygon
-          points="100,130 120,170 80,170"
-          fill="url(#origami-gradient-3)"
-          stroke="hsl(215, 35%, 65%)"
-          strokeWidth="1"
+          points="100,140 70,165 100,150 130,165"
+          fill="url(#origami-red-2)"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         />
 
-        {/* Fold lines for origami effect */}
+        {/* Center fold line */}
         <motion.line
-          x1="100" y1="30" x2="100" y2="130"
-          stroke="hsl(215, 30%, 70%)"
-          strokeWidth="0.5"
-          strokeDasharray="4,4"
+          x1="100" y1="60" x2="100" y2="140"
+          stroke="hsl(0, 50%, 45%)"
+          strokeWidth="0.8"
+          opacity="0.5"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-        />
-        <motion.line
-          x1="40" y1="130" x2="160" y2="130"
-          stroke="hsl(215, 30%, 70%)"
-          strokeWidth="0.5"
-          strokeDasharray="4,4"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
         />
       </svg>
     </motion.div>

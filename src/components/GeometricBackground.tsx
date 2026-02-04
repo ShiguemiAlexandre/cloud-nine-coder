@@ -1,108 +1,87 @@
-import { motion } from 'framer-motion';
-
 const GeometricBackground = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-      {/* Base gradient */}
+      {/* Base gradient - soft blue to white */}
       <div 
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(180deg, hsl(210, 40%, 98%) 0%, hsl(200, 35%, 96%) 50%, hsl(195, 30%, 94%) 100%)'
+          background: 'linear-gradient(180deg, hsl(205, 45%, 96%) 0%, hsl(200, 40%, 98%) 100%)'
         }}
       />
       
-      {/* Abstract wave pattern - SVG */}
+      {/* Clean Seigaiha wave pattern */}
       <svg 
-        className="absolute inset-0 w-full h-full opacity-[0.08]"
+        className="absolute inset-0 w-full h-full"
         preserveAspectRatio="xMidYMid slice"
+        style={{ opacity: 0.12 }}
       >
         <defs>
-          <pattern id="wave-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-            {/* Seigaiha-inspired concentric arcs */}
-            <g fill="none" stroke="hsl(210, 40%, 50%)" strokeWidth="1">
-              {/* Bottom left arc set */}
-              <path d="M0,60 Q30,30 60,60" />
-              <path d="M0,70 Q35,35 70,70" />
-              <path d="M0,80 Q40,40 80,80" />
+          <pattern 
+            id="seigaiha-pattern" 
+            x="0" 
+            y="0" 
+            width="80" 
+            height="40" 
+            patternUnits="userSpaceOnUse"
+          >
+            {/* Row 1 - full circles */}
+            <g fill="none" stroke="hsl(210, 50%, 55%)" strokeWidth="1">
+              <path d="M0,40 a40,40 0 0,1 40,-40" />
+              <path d="M0,40 a32,32 0 0,1 32,-32" />
+              <path d="M0,40 a24,24 0 0,1 24,-24" />
+              <path d="M0,40 a16,16 0 0,1 16,-16" />
               
-              {/* Top right arc set */}
-              <path d="M60,0 Q90,30 120,0" />
-              <path d="M50,0 Q90,40 120,10" />
-              
-              {/* Center decorative element */}
-              <circle cx="60" cy="60" r="8" />
-              <circle cx="60" cy="60" r="16" />
+              <path d="M80,40 a40,40 0 0,0 -40,-40" />
+              <path d="M80,40 a32,32 0 0,0 -32,-32" />
+              <path d="M80,40 a24,24 0 0,0 -24,-24" />
+              <path d="M80,40 a16,16 0 0,0 -16,-16" />
             </g>
           </pattern>
+          
+          <pattern 
+            id="seigaiha-offset" 
+            x="40" 
+            y="0" 
+            width="80" 
+            height="40" 
+            patternUnits="userSpaceOnUse"
+          >
+            <g fill="none" stroke="hsl(210, 50%, 55%)" strokeWidth="1">
+              <path d="M0,40 a40,40 0 0,1 40,-40" />
+              <path d="M0,40 a32,32 0 0,1 32,-32" />
+              <path d="M0,40 a24,24 0 0,1 24,-24" />
+              <path d="M0,40 a16,16 0 0,1 16,-16" />
+              
+              <path d="M80,40 a40,40 0 0,0 -40,-40" />
+              <path d="M80,40 a32,32 0 0,0 -32,-32" />
+              <path d="M80,40 a24,24 0 0,0 -24,-24" />
+              <path d="M80,40 a16,16 0 0,0 -16,-16" />
+            </g>
+          </pattern>
+          
+          {/* Combined pattern for proper seigaiha */}
+          <pattern 
+            id="seigaiha-full" 
+            x="0" 
+            y="0" 
+            width="80" 
+            height="80" 
+            patternUnits="userSpaceOnUse"
+          >
+            <rect x="0" y="0" width="80" height="40" fill="url(#seigaiha-pattern)" />
+            <rect x="-40" y="40" width="160" height="40" fill="url(#seigaiha-offset)" />
+          </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#wave-pattern)" />
+        <rect width="100%" height="100%" fill="url(#seigaiha-full)" />
       </svg>
 
-      {/* Floating geometric accents */}
-      <motion.div
-        className="absolute top-[10%] right-[15%] w-32 h-32"
-        animate={{
-          y: [0, -10, 0],
-          rotate: [0, 5, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      >
-        <svg viewBox="0 0 100 100" className="w-full h-full opacity-10">
-          <polygon 
-            points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" 
-            fill="none" 
-            stroke="hsl(200, 50%, 60%)" 
-            strokeWidth="1"
-          />
-          <polygon 
-            points="50,20 80,35 80,65 50,80 20,65 20,35" 
-            fill="none" 
-            stroke="hsl(200, 50%, 60%)" 
-            strokeWidth="0.5"
-          />
-        </svg>
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-[20%] left-[10%] w-24 h-24"
-        animate={{
-          y: [0, 8, 0],
-          rotate: [0, -3, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2,
-        }}
-      >
-        <svg viewBox="0 0 100 100" className="w-full h-full opacity-10">
-          <circle cx="50" cy="50" r="40" fill="none" stroke="hsl(195, 40%, 55%)" strokeWidth="1" />
-          <circle cx="50" cy="50" r="30" fill="none" stroke="hsl(195, 40%, 55%)" strokeWidth="0.5" />
-          <circle cx="50" cy="50" r="20" fill="none" stroke="hsl(195, 40%, 55%)" strokeWidth="0.5" />
-        </svg>
-      </motion.div>
-
-      {/* Subtle gradient orbs */}
+      {/* Subtle gradient overlay for depth */}
       <div 
-        className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl"
+        className="absolute inset-0"
         style={{
-          background: 'radial-gradient(circle, hsl(200, 40%, 85%) 0%, transparent 70%)'
+          background: 'radial-gradient(ellipse at 50% 30%, transparent 0%, hsl(200, 30%, 95%, 0.4) 100%)'
         }}
       />
-      <div 
-        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-15 blur-3xl"
-        style={{
-          background: 'radial-gradient(circle, hsl(195, 35%, 80%) 0%, transparent 70%)'
-        }}
-      />
-      
-      {/* Grain overlay */}
-      <div className="grain-overlay" />
     </div>
   );
 };

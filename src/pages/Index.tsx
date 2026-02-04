@@ -40,11 +40,11 @@ const Index = () => {
         <motion.footer
           className="fixed bottom-6 left-0 right-0 text-center"
           initial={{ opacity: 0 }}
-          animate={{ opacity: isOpen ? 0 : 0.6 }}
+          animate={{ opacity: isOpen ? 0 : 0.5 }}
           transition={{ duration: 0.3 }}
         >
-          <p className="text-sm text-slate-400 font-light tracking-wider">
-            © 2024 Alexandre Shiguemi Ito
+          <p className="text-sm text-slate-500 font-light tracking-wide">
+            © 2025 Alexandre Shiguemi Ito
           </p>
         </motion.footer>
       </main>

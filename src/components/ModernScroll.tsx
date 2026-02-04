@@ -14,56 +14,81 @@ const ModernScroll = ({ onClick, isOpen }: ModernScrollProps) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* Main glassmorphism container */}
+      {/* Main scroll container */}
       <motion.div 
-        className="relative overflow-hidden"
-        whileHover={{
-          scale: 1.02,
-        }}
+        className="relative flex items-center"
+        whileHover={{ scale: 1.01 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        {/* Glass background */}
+        {/* Left scroll roller cap */}
         <div 
-          className="relative px-12 md:px-20 py-6 md:py-8 rounded-2xl border border-white/30"
+          className="relative z-10 w-6 md:w-8 h-20 md:h-24 rounded-l-full flex-shrink-0"
           style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            boxShadow: '0 8px 32px -8px rgba(100, 120, 140, 0.15), 0 4px 16px -4px rgba(100, 120, 140, 0.1), inset 0 1px 0 rgba(255,255,255,0.6)',
+            background: 'linear-gradient(180deg, hsl(215, 35%, 35%) 0%, hsl(215, 40%, 25%) 50%, hsl(215, 35%, 30%) 100%)',
+            boxShadow: 'inset -2px 0 4px rgba(0,0,0,0.2), -2px 4px 8px rgba(0,0,0,0.15)',
           }}
         >
-          {/* Subtle top highlight */}
-          <div className="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-white to-transparent opacity-80" />
+          {/* Roller detail */}
+          <div className="absolute inset-y-2 left-1 right-2 rounded-l-full" 
+            style={{
+              background: 'linear-gradient(90deg, hsl(215, 30%, 40%) 0%, hsl(215, 35%, 30%) 100%)',
+            }}
+          />
+        </div>
+
+        {/* Center navy scroll body */}
+        <div 
+          className="relative px-8 md:px-16 lg:px-24 py-5 md:py-6 flex-shrink-0"
+          style={{
+            background: 'linear-gradient(180deg, hsl(215, 45%, 28%) 0%, hsl(220, 50%, 20%) 50%, hsl(215, 45%, 25%) 100%)',
+            boxShadow: '0 8px 24px -4px rgba(30, 41, 59, 0.4), inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.2)',
+          }}
+        >
+          {/* Top highlight line */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-400/30 to-transparent" />
           
-          {/* Decorative side elements */}
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 w-1 h-12 rounded-full bg-gradient-to-b from-slate-300/50 via-slate-400/30 to-slate-300/50" />
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 w-1 h-12 rounded-full bg-gradient-to-b from-slate-300/50 via-slate-400/30 to-slate-300/50" />
+          {/* Bottom shadow line */}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-black/20" />
           
-          {/* Main text */}
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-[0.3em] select-none text-slate-800">
-              ITO
-            </h1>
-            <p className="mt-1 text-xs md:text-sm tracking-[0.4em] text-slate-500 font-light uppercase">
+          {/* Japanese characters - ITO 伊藤 */}
+          <div className="text-center select-none">
+            <h1 
+              className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-[0.4em] text-white/95"
+              style={{
+                fontFamily: "'Inter', system-ui, sans-serif",
+                textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+              }}
+            >
               伊藤
+            </h1>
+            <p className="mt-1 text-xs md:text-sm tracking-[0.5em] text-slate-300/80 font-light uppercase">
+              ITO
             </p>
           </div>
         </div>
-        
-        {/* Hover glow effect */}
-        <motion.div
-          className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+
+        {/* Right scroll roller cap */}
+        <div 
+          className="relative z-10 w-6 md:w-8 h-20 md:h-24 rounded-r-full flex-shrink-0"
           style={{
-            background: 'radial-gradient(circle at 50% 50%, rgba(100, 150, 200, 0.08) 0%, transparent 70%)',
+            background: 'linear-gradient(180deg, hsl(215, 35%, 35%) 0%, hsl(215, 40%, 25%) 50%, hsl(215, 35%, 30%) 100%)',
+            boxShadow: 'inset 2px 0 4px rgba(0,0,0,0.2), 2px 4px 8px rgba(0,0,0,0.15)',
           }}
-        />
+        >
+          {/* Roller detail */}
+          <div className="absolute inset-y-2 right-1 left-2 rounded-r-full" 
+            style={{
+              background: 'linear-gradient(90deg, hsl(215, 35%, 30%) 0%, hsl(215, 30%, 40%) 100%)',
+            }}
+          />
+        </div>
       </motion.div>
       
       {/* Hint text */}
       <motion.p
-        className="text-center mt-5 text-slate-400 text-sm font-light tracking-widest"
+        className="text-center mt-6 text-slate-500 text-sm font-light tracking-widest"
         initial={{ opacity: 0 }}
-        animate={{ opacity: isOpen ? 0 : 0.8 }}
+        animate={{ opacity: isOpen ? 0 : 0.7 }}
         transition={{ duration: 0.3 }}
       >
         {isOpen ? '' : 'Click to explore'}

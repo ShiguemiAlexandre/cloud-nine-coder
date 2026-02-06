@@ -9,14 +9,6 @@ Projeto SPA (Single Page Application) construído com **Vite + React + TypeScrip
 
 ## 🛠️ Como editar o projeto
 
-Você pode editar o projeto de várias formas:
-
-### 🔹 Usando o Lovable
-Acesse o projeto no Lovable e comece a editar via prompt.  
-As alterações feitas por lá são automaticamente commitadas no repositório.
-
----
-
 ### 🔹 Usando sua IDE local (recomendado)
 
 #### Pré-requisitos

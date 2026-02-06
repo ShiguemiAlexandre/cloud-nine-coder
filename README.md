@@ -54,7 +54,7 @@ gsutil -m cp -r dist/* gs://shiguemi/
 ```
 
 #### 4️⃣ Acessar o site
-https://shiguemi.storage.googleapis.com/
+https://shiguemi.storage.googleapis.com/index.html
 
 ### ⏱️ Cache (importante)
 

@@ -20,6 +20,15 @@ const Index = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isOpen]);
+
+
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
       <UkiyoeBackground />

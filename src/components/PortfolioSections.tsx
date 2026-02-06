@@ -272,7 +272,7 @@ const PortfolioSections = () => {
                 className="px-4 py-2 rounded-lg text-sm font-medium bg-white/80 text-slate-700 border border-slate-200 shadow-sm transition-all duration-300 cursor-pointer select-none"
                 initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ delay: 0.2 + index * 0.05, type: 'spring', stiffness: 120, damping: 12 }}
+                transition={{ delay: 1.2 + index * 0.12, type: 'spring', stiffness: 120, damping: 12 }}
                 whileHover={{
                   y: -4,
                   scale: 1.05,
@@ -454,7 +454,7 @@ const PortfolioSections = () => {
         {/* Footer */}
         <footer className="pt-8 border-t border-slate-200 text-center">
           <p className="text-sm text-slate-500 font-light">
-            © 2025 Alexandre Shiguemi Ito.
+            © 2026 Alexandre Shiguemi Ito.
           </p>
 
         </footer>

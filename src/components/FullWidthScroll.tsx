@@ -75,15 +75,24 @@ const FullWidthScroll = ({ onClick, isOpen }: FullWidthScrollProps) => {
 
       {/* Hint */}
       {!isOpen && (
-        <motion.p
-          className="text-center mt-6 text-slate-600 text-sm font-light tracking-widest"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 0.3 }}
-        >
-          Clique no pergaminho
-        </motion.p>
-      )}
+      <motion.p
+        className="text-center mt-6 text-sm font-light tracking-widest text-slate-900 drop-shadow-lg"
+        initial={{ opacity: 0, y: 0, scale: 1 }}
+        animate={{
+          opacity: [0, 0.9, 0.9, 0.9],
+          y: [0, -4, 0, -2],
+          scale: [1, 1.05, 1, 1.02],
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          repeatType: 'reverse',
+          ease: 'easeInOut',
+        }}
+      >
+        Clique no pergaminho
+      </motion.p>
+    )}
     </motion.div>
   );
 };

@@ -1,5 +1,3 @@
-# 🚀 Cloud Nine Coder – Projeto Lovable
-
 ## 📌 Informações do Projeto
 
 **URL em produção:**  

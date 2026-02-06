@@ -1,16 +1,45 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* ITO Portfolio Design System - 2024 Modern Aesthetic
-   Clean, professional, tech-focused with subtle Japanese influence
-   Glassmorphism + abstract geometric patterns
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fonte custom */
+@font-face {
+  font-family: 'Sisterhood';
+  src: url('/fonts/Sisterhood_PersonalUseOnly.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    /* suas variáveis... mantenha como estão */
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+  }
+
+  .font-display {
+    font-family: 'Noto Serif JP', 'Inter', serif;
+  }
+
+  /* Nova classe para a fonte Sisterhood */
+  .font-signature {
+    font-family: 'Sisterhood', cursive;
+  }
+}
 
 @layer base {
   :root {

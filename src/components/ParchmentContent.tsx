@@ -43,7 +43,7 @@ const ParchmentContent = ({ isOpen, children }: ParchmentContentProps) => {
             opacity: 1,
             transition: {
               height: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-              opacity: { duration: 0.5, delay: 0.2, ease: "easeOut" },
+              opacity: { duration: 1.5, delay: 0.5, ease: "easeOut" },
             }
           }}
           exit={{ 
@@ -56,15 +56,30 @@ const ParchmentContent = ({ isOpen, children }: ParchmentContentProps) => {
           }}
         >
           {/* Parchment container with realistic texture */}
-          <motion.div 
-            className="relative w-full"
-            style={{
-              background: 'linear-gradient(180deg, hsl(40, 35%, 94%) 0%, hsl(38, 30%, 91%) 50%, hsl(35, 28%, 88%) 100%)',
-              boxShadow: 'inset 0 20px 60px -20px rgba(60, 50, 40, 0.15), 0 -10px 30px -10px rgba(0,0,0,0.1)',
+          <motion.div
+            className="
+            relative
+            w-full
+            max-w-5xl
+            mx-auto
+            -mt-16
+            rounded-b-2xl
+            overflow-hidden
+            z-10
+          "
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{
+              duration: 1,
+              ease: [0.22, 1, 0.36, 1],
             }}
-            initial={{ filter: 'blur(8px)' }}
-            animate={{ filter: 'blur(0px)' }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            style={{
+              background:
+                'linear-gradient(180deg, hsl(40,35%,94%) 0%, hsl(38,30%,91%) 50%, hsl(35,28%,88%) 100%)',
+              boxShadow:
+                '0 30px 60px rgba(0,0,0,.12), inset 0 20px 40px rgba(0,0,0,.08)',
+            }}
           >
             {/* Paper texture overlay */}
             <div 

@@ -11,9 +11,9 @@ const techStack = [
 ];
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, href: 'https://github.com' },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-  { name: 'Contact', icon: Mail, href: 'mailto:contact@example.com' },
+  { name: 'GitHub', icon: Github, href: 'https://github.com/ShiguemiAlexandre' },
+  { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/alexandreshiguemi/' },
+  { name: 'Contact', icon: Mail, href: 'shiguemialexandre@gmail.com' },
 ];
 
 const containerVariants: Variants = {

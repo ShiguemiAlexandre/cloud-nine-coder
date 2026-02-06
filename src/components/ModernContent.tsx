@@ -3,8 +3,8 @@ import { Github, Linkedin } from 'lucide-react';
 import OrigamiIllustration from './OrigamiIllustration';
 
 const socialLinks = [
-  { name: 'GitHub', icon: Github, href: 'https://github.com' },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
+  { name: 'GitHub', icon: Github, href: 'https://github.com/ShiguemiAlexandre' },
+  { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/alexandreshiguemi/' },
 ];
 
 const containerVariants: Variants = {
